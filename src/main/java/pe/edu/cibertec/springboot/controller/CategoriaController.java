@@ -34,7 +34,8 @@ public class CategoriaController {
     
     @PostMapping
     public CategoriaDto crearCategoria(@RequestBody CategoriaDto categoriaDto){
-        return categoriaService.crear(categoriaDto, 0L);
+//        return categoriaService.crear(categoriaDto, 0L);
+        return categoriaService.crear(categoriaDto, null);
     }
     
     @GetMapping(path = {"/{id}", "/{id}/"})

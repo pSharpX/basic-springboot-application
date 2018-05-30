@@ -7,8 +7,10 @@ package pe.edu.cibertec.springboot.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.cibertec.springboot.application.annotation.BusinessService;
 import pe.edu.cibertec.springboot.dao.CategoriaDao;
 import pe.edu.cibertec.springboot.domain.Categoria;
 import pe.edu.cibertec.springboot.dto.CategoriaDto;
@@ -21,7 +23,8 @@ import pe.edu.cibertec.springboot.utils.SoporteCache;
  *
  * @author Java-LM
  */
-@Service
+//@Service
+@BusinessService
 public class CategoriaServiceImpl 
         implements CategoriaService, SoporteCache<CategoriaDto>{
     
@@ -37,7 +40,7 @@ public class CategoriaServiceImpl
     }
 
     @Override
-    public CategoriaDto crear(CategoriaDto categoriaDto, Long idUsuario) {
+    public CategoriaDto crear(CategoriaDto categoriaDto, @NotNull Long idUsuario) {
         Precondiciones.revisarArgumento(categoriaDto != null, 
                 "Objeto a insertar es nulo");
         Precondiciones.revisarArgumento(categoriaDto.getNombre(), 
